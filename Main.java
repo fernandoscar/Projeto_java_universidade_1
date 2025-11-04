@@ -99,7 +99,13 @@ public class Main {
         System.out.print("Digite o nome: ");
         String nome = scanner.nextLine();
         System.out.print("Digite o salário: ");
-        double salario = Double.parseDouble(scanner.nextLine());
+        double salario;
+        try {
+            salario = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um salário válido.");
+            return;
+        }
         System.out.print("Digite a matrícula: ");
         String matricula = scanner.nextLine();
 
@@ -122,7 +128,13 @@ public class Main {
     
     private static void buscarFuncionarioPorId() {
         System.out.print("Digite o ID do funcionário para buscar: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         Funcionario f = funcionarioRepository.buscarPorId(id);
         if (f != null) {
             System.out.println("Funcionário encontrado: " + f);
@@ -133,7 +145,13 @@ public class Main {
 
     private static void atualizarFuncionario() {
         System.out.print("Digite o ID do funcionário para atualizar: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         if (funcionarioRepository.buscarPorId(id) == null) {
             System.out.println("Funcionário com ID " + id + " não encontrado.");
             return;
@@ -142,7 +160,13 @@ public class Main {
         System.out.print("Digite o novo nome: ");
         String nome = scanner.nextLine();
         System.out.print("Digite o novo salário: ");
-        double salario = Double.parseDouble(scanner.nextLine());
+        double salario;
+        try {
+            salario = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um salário válido.");
+            return;
+        }
         System.out.print("Digite a nova matrícula: ");
         String matricula = scanner.nextLine();
         
@@ -154,7 +178,13 @@ public class Main {
     
     private static void excluirFuncionario() {
         System.out.print("Digite o ID do funcionário para excluir: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         if (funcionarioRepository.removerPorId(id)) {
             System.out.println("Funcionário removido com sucesso!");
         } else {
@@ -191,9 +221,21 @@ public class Main {
         System.out.print("Digite o nome do produto: ");
         String nome = scanner.nextLine();
         System.out.print("Digite o preço: ");
-        double preco = Double.parseDouble(scanner.nextLine());
+        double preco;
+        try {
+            preco = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um preço válido.");
+            return;
+        }
         System.out.print("Digite a quantidade em estoque: ");
-        int qtd = Integer.parseInt(scanner.nextLine());
+        int qtd;
+        try {
+            qtd = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite uma quantidade válida.");
+            return;
+        }
 
         Produto p = new Produto(nome, preco, qtd);
         produtoRepository.adicionar(p);
@@ -214,7 +256,13 @@ public class Main {
     
     private static void buscarProdutoPorId() {
         System.out.print("Digite o ID do produto para buscar: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         Produto p = produtoRepository.buscarPorId(id);
         if (p != null) {
             System.out.println("Produto encontrado: " + p);
@@ -225,7 +273,13 @@ public class Main {
 
     private static void atualizarProduto() {
         System.out.print("Digite o ID do produto para atualizar: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         if (produtoRepository.buscarPorId(id) == null) {
             System.out.println("Produto com ID " + id + " não encontrado.");
             return;
@@ -234,9 +288,21 @@ public class Main {
         System.out.print("Digite o novo nome: ");
         String nome = scanner.nextLine();
         System.out.print("Digite o novo preço: ");
-        double preco = Double.parseDouble(scanner.nextLine());
+        double preco;
+        try {
+            preco = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um preço válido.");
+            return;
+        }
         System.out.print("Digite a nova quantidade em estoque: ");
-        int qtd = Integer.parseInt(scanner.nextLine());
+        int qtd;
+        try {
+            qtd = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite uma quantidade válida.");
+            return;
+        }
         
         Produto dadosNovos = new Produto(nome, preco, qtd);
         if (produtoRepository.atualizar(id, dadosNovos)) {
@@ -246,7 +312,13 @@ public class Main {
     
     private static void excluirProduto() {
         System.out.print("Digite o ID do produto para excluir: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         if (produtoRepository.removerPorId(id)) {
             System.out.println("Produto removido com sucesso!");
         } else {
@@ -306,7 +378,13 @@ public class Main {
 
     private static void buscarClientePorId() {
         System.out.print("Digite o ID do cliente para buscar: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         Cliente c = clienteRepository.buscarPorId(id);
         if (c != null) {
             System.out.println("Cliente encontrado: " + c);
@@ -317,7 +395,13 @@ public class Main {
 
     private static void atualizarCliente() {
         System.out.print("Digite o ID do cliente para atualizar: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         if (clienteRepository.buscarPorId(id) == null) {
             System.out.println("Cliente com ID " + id + " não encontrado.");
             return;
@@ -338,7 +422,13 @@ public class Main {
     
     private static void excluirCliente() {
         System.out.print("Digite o ID do cliente para excluir: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Por favor, digite um número de ID válido.");
+            return;
+        }
         if (clienteRepository.removerPorId(id)) {
             System.out.println("Cliente removido com sucesso!");
         } else {
