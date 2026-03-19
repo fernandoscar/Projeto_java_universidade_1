@@ -1,5 +1,5 @@
 # DuoDoAmor
-Um grupo para fazer amor e progama
+Um grupo para fazer trabalho de java.
 # Sistema de Gerenciamento
 
 Um sistema simples em **Java** para gerenciar **Funcionários**, **Produtos** e **Clientes**.  
